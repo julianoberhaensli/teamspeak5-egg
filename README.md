@@ -28,9 +28,9 @@ check the update documentation on the [documentation page](https://pterodactyl.i
 
 ### <a name="egg"></a> 2. Import the Egg
 
-1. **Clone** the github repository `git clone git@github.com:JPylypiw/teamspeak-egg.git`
+1. **Clone** the github repository `git clone git@github.com:julianoberhaensli/teamspeak5-egg.git`
 
-    or **download** the egg script [here](https://raw.githubusercontent.com/JPylypiw/teamspeak-egg/master/egg-teamspeak3-server.json)
+    or **download** the egg script [here](https://raw.githubusercontent.com/julianoberhaensli/teamspeak5-egg/master/egg-teamspeak5-server.json)
 1. go to **Nests** in you pterodactyl panel
 1. If you don't have a Nest for your custom Eggs, please create one.
 
@@ -71,7 +71,7 @@ For performing the downgrade the server has to be installed and started one or m
 
 ## License
 
-teamspeak-egg is GNU **General Public License v3.0**. Please check the [License](https://github.com/JPylypiw/teamspeak-egg/blob/master/LICENSE) before performing any changes on the scripts.
+teamspeak5-egg is GNU **General Public License v3.0**. Please check the [License](https://github.com/julianoberhaensli/teamspeak5-egg/blob/master/LICENSE) before performing any changes on the scripts.
 
 ## Screenshots
 
@@ -79,6 +79,11 @@ teamspeak-egg is GNU **General Public License v3.0**. Please check the [License]
 ![Screenshot 2: Console Output while updating](https://i.imgur.com/A0hTmMN.png)
 
 ## Changelog
+
+### 5.7.0 (2023-04-14)
+
+Features:
+- Upgraded from TeamSpeak 3.8.0 to TeamSpeak 5.7.0
 
 ### 1.2.1 (2019-06-09)
 
