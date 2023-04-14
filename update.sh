@@ -10,12 +10,12 @@ INSTALLED_TAG=$(cat version_installed.txt)
 echo "Installed TeamSpeak Version: $INSTALLED_TAG"
 
 # check if there is a static version set in pterodactyl panel
-. "version_static.txt"
+. "tag_static.txt"
 STATIC_VERSION=0
-if ! [ "$SERVER_VERSION" = "undefined" ] && ! [ "$SERVER_VERSION" = 0 ];
+if ! [ "$SERVER_TAG" = "undefined" ] && ! [ "$SERVER_TAG" = 0 ];
 then
     STATIC_VERSION=1
-    echo "Server is set to static version: $SERVER_VERSION"
+    echo "Server is set to static tag: $SERVER_TAG and version: $SERVER_VERSION" 
 fi
 
 updateToVersion() {
@@ -44,7 +44,10 @@ updateToVersion() {
 
 if [ "$LATEST_TAG" != "$INSTALLED_TAG" ] && [ "$STATIC_VERSION" = 0 ];
 then
-    updateToVersion "$LATEST_VERSION" "$LATEST_TAG"
+    updateToVersion "$LATEST_TAG" "$LATEST_VERSION"
+elif [ "$SERVER_TAG" != "$INSTALLED_TAG" ] && [ "$STATIC_VERSION" = 1 ];
+then
+    updateToVersion "$SERVER_TAG" "$SERVER_VERSION"
 else
     echo 'No update required.'
 fi
