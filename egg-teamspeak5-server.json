@@ -4,7 +4,7 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-04-14T07:03:50+02:00",
+    "exported_at": "2023-04-14T07:35:35+02:00",
     "name": "Teamspeak5 Server",
     "author": "julian.oberhaensli@gmail.com",
     "description": "VoIP software designed with security in mind, featuring crystal clear voice quality, endless customization options, and scalabilty up to thousands of simultaneous users.",
@@ -22,7 +22,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/bash\r\n# TS5 Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\necho 'apt-get update ; installing tar and curl'\r\napt-get update\r\napt-get install -y tar curl bzip2\r\ncd \/mnt\/server || exit\r\nTSTAG=$(curl https:\/\/raw.githubusercontent.com\/julianoberhaensli\/teamspeak5-egg\/master\/tstag)\r\nTSVERSION=$(curl https:\/\/raw.githubusercontent.com\/julianoberhaensli\/teamspeak5-egg\/master\/tsversion)\r\necho \"latest TeamSpeak version: $TSTAG\"\r\necho \"downloading from https:\/\/github.com\/TeamSpeak-Systems\/ts-native\/releases\/download\/$TSTAG\/teamspeak-server_linux_amd64-$TSVERSION.tar.bz2\"\r\ncurl -LO https:\/\/github.com\/TeamSpeak-Systems\/ts-native\/releases\/download\/\"$TSTAG\"\/teamspeak-server_linux_amd64-\"$TSVERSION\".tar.bz2 | tar xj --strip-components=1\r\necho 'accepting license...'\r\necho '' > .tsserver_license_accepted\r\necho \"$TSTAG\" > tag_installed.txt\r\necho \"$TSVERSION\" > version_installed.txt\r\necho 'downloading startscript...'\r\ncurl -H 'Cache-Control: max-age=0' https:\/\/raw.githubusercontent.com\/julianoberhaensli\/teamspeak5-egg\/master\/update.sh > update.sh\r\nchmod +x update.sh\r\necho \"\" > tsserver.ini\r\necho \"\" > tag_static.txt\r\necho \"\" > version_static.txt\r\necho \"SERVER_TAG=\" > tag_static.txt\r\necho \"SERVER_VERSION=\" > version_static.txt\r\necho 'finished!'",
+            "script": "#!\/bin\/bash\r\n# TS5 Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\necho 'apt-get update ; installing tar and curl'\r\napt-get update\r\napt-get install -y tar curl bzip2\r\ncd \/mnt\/server || exit\r\nTSTAG=$(curl https:\/\/raw.githubusercontent.com\/julianoberhaensli\/teamspeak5-egg\/master\/tstag)\r\nTSVERSION=$(curl https:\/\/raw.githubusercontent.com\/julianoberhaensli\/teamspeak5-egg\/master\/tsversion)\r\necho \"latest TeamSpeak version: $TSTAG\"\r\necho \"downloading from https:\/\/github.com\/TeamSpeak-Systems\/ts-native\/releases\/download\/$TSTAG\/teamspeak-server_linux_amd64-$TSVERSION.tar.bz2\"\r\ncurl -s -L https:\/\/github.com\/TeamSpeak-Systems\/ts-native\/releases\/download\/beta-58rc20\/teamspeak-server_linux_amd64-v5.0.0-beta14-rc16.tar.bz2 | tar jxf - --strip-components=1\r\necho 'accepting license...'\r\necho '' > .tsserver_license_accepted\r\necho \"$TSTAG\" > tag_installed.txt\r\necho \"$TSVERSION\" > version_installed.txt\r\necho 'downloading startscript...'\r\ncurl -H 'Cache-Control: max-age=0' https:\/\/raw.githubusercontent.com\/julianoberhaensli\/teamspeak5-egg\/master\/update.sh > update.sh\r\nchmod +x update.sh\r\necho \"\" > tsserver.ini\r\necho \"\" > tag_static.txt\r\necho \"\" > version_static.txt\r\necho \"SERVER_TAG=\" > tag_static.txt\r\necho \"SERVER_VERSION=\" > version_static.txt\r\necho 'finished!'",
             "container": "ubuntu:16.04",
             "entrypoint": "bash"
         }
