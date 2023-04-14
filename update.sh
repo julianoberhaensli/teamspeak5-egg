@@ -32,7 +32,7 @@ updateToVersion() {
     rm ./LICENSE*
     rm tsserver
     echo "downloading teamspeak version $TSVERSION and extracting file..."
-    curl https://github.com/TeamSpeak-Systems/ts-native/releases/download/"$TSTAG"/teamspeak-server_linux_amd64-"$TSVERSION".tar.bz2 | tar xj --strip-components=1
+    curl -LO https://github.com/TeamSpeak-Systems/ts-native/releases/download/"$TSTAG"/teamspeak-server_linux_amd64-"$TSVERSION".tar.bz2 | tar xj --strip-components=1
     echo 'download and extraction finished'
     chmod +x tsserver_minimal_runscript.sh
     echo 'permissions set.'
