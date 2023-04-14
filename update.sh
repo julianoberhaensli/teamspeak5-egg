@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # get latest version from github
-LATEST_VERSION=$(curl -s https://raw.githubusercontent.com/julianoberhaensli/teamspeak5-egg/master/tsversion)
 LATEST_TAG=$(curl -s https://raw.githubusercontent.com/julianoberhaensli/teamspeak5-egg/master/tstag)
+LATEST_VERSION=$(curl -s https://raw.githubusercontent.com/julianoberhaensli/teamspeak5-egg/master/tsversion)
 echo "Latest TeamSpeak Version: $LATEST_TAG"
 
 # get installed version from version_installed.txt
@@ -38,6 +38,7 @@ updateToVersion() {
     echo 'permissions set.'
     echo '' > .tsserver_license_accepted
     echo 'accepted license'
+    echo "$TSTAG" > tag_installed.txt
     echo "$TSVERSION" > version_installed.txt
     echo 'version written into version_installed.txt file'
 }
